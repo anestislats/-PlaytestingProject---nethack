@@ -2,8 +2,9 @@ package A.B;
 
 
 import java.awt.Color;
+import java.io.Serializable;
 
-public class Player extends Mob{
+public class Player extends Mob implements Serializable {
 	
 	public Player(int x, int y){
 		super(x, y, "@", Color.magenta);

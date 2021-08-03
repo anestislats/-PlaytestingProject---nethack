@@ -1,7 +1,8 @@
 package A.B;
 
+import java.io.Serializable;
 
-public class Item{
+public class Item implements Serializable {
 	public int amount;
 	public String ID ;
 	

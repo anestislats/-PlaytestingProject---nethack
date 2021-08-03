@@ -2,8 +2,9 @@ package A.B;
 
 
 import java.awt.Color;
+import java.io.Serializable;
 
-public class FloorTile extends Tile{
+public class FloorTile extends Tile implements Serializable {
 	
 	public FloorTile(){
 		super(" ", Color.orange); // monster's path

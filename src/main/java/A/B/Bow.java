@@ -1,7 +1,8 @@
 package A.B;
 
+import java.io.Serializable;
 
-public class Bow extends Weapon{
+public class Bow extends Weapon implements Serializable {
 	
 	public Bow(String name, int dmg){
 		super(name, dmg);

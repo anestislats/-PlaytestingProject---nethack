@@ -1,7 +1,8 @@
 package A.B;
 
+import java.io.Serializable;
 
-public class HealthPotion extends Item{
+public class HealthPotion extends Item implements Serializable {
 	public int restoreAmt;
 	
 	public HealthPotion(){

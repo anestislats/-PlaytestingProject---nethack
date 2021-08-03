@@ -1,7 +1,8 @@
 package A.B;
 
+import java.io.Serializable;
 
-public class Water extends Item{
+public class Water extends Item implements Serializable {
 	public int restoreAmt;
 	
 	public Water(){

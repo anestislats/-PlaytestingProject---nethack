@@ -2,8 +2,9 @@ package A.B;
 
 
 import java.awt.Color;
+import java.io.Serializable;
 
-public class Monster extends Mob{
+public class Monster extends Mob implements Serializable {
 	
 	public int health, attackDmg;
 	public boolean alive, waitTurn, seenPlayer;

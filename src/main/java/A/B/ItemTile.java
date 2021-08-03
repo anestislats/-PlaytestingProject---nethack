@@ -2,8 +2,9 @@ package A.B;
 
 
 import java.awt.Color;
+import java.io.Serializable;
 
-public class ItemTile extends Tile{
+public class ItemTile extends Tile implements Serializable {
 	
 	public Item item;
 	public String ID ;

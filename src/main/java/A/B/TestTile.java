@@ -2,8 +2,9 @@ package A.B;
 
 
 import java.awt.Color;
+import java.io.Serializable;
 
-public class TestTile extends Tile{
+public class TestTile extends Tile implements Serializable {
 	
 	public TestTile(){
 		super("T", Color.green);

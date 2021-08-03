@@ -1,8 +1,9 @@
 package A.B;
 
 import java.awt.Color;
+import java.io.Serializable;
 
-public abstract class Tile{
+public abstract class Tile implements Serializable {
 	
 	public String image = "E";
 	public String ID ;
