@@ -40,6 +40,7 @@ public class Screen extends JPanel implements KeyListener{
 	private BottomBar bb;
 	private MusicPlayer mp;
 	public int moves;
+	public int moveDeductedLife;
 	//private seedNumbers SeedNumbers;
 	
 	private int bgRed, bgGreen, bgBlue;
@@ -79,6 +80,7 @@ public class Screen extends JPanel implements KeyListener{
 		
 		level = 0;
 		moves = 0;
+		moveDeductedLife = 0;
 
 
 		menuHighlighted = 0;
@@ -1288,6 +1290,7 @@ public class Screen extends JPanel implements KeyListener{
 				if ( moves%8 == 0){
 					ps.reduceHealth(1);
 					bb.addMessage("You just moved 8 steps. You lost 1 life point.");
+					moveDeductedLife++;
 				}
 
 
@@ -1335,6 +1338,8 @@ public class Screen extends JPanel implements KeyListener{
 			ps.gainHealth(hp.getRestoreAmount());
 
 			ps.decreaseItemAmount(indexOfItemInInventory, 1);
+			
+			moveDeductedLife = 0;
 
 		} else if(ps.getInvItem(indexOfItemInInventory) instanceof Water){
 			Water w = (Water) ps.getInvItem(indexOfItemInInventory);
@@ -1343,6 +1348,8 @@ public class Screen extends JPanel implements KeyListener{
 			ps.gainHealth(w.getRestoreAmount());
 
 			ps.decreaseItemAmount(indexOfItemInInventory, 1);
+			
+			moveDeductedLife = 0;
 
 		} else if(ps.getInvItem(indexOfItemInInventory) instanceof Food){
 			Food f = (Food) ps.getInvItem(indexOfItemInInventory);
@@ -1351,6 +1358,8 @@ public class Screen extends JPanel implements KeyListener{
 			ps.gainHealth(f.getRestoreAmount());
 
 			ps.decreaseItemAmount(indexOfItemInInventory, 1);
+			
+			moveDeductedLife = 0;
 
 		}
 	}
