@@ -1339,7 +1339,7 @@ public class Screen extends JPanel implements KeyListener{
 
 			ps.decreaseItemAmount(indexOfItemInInventory, 1);
 			
-			moveDeductedLife = 0;
+			
 
 		} else if(ps.getInvItem(indexOfItemInInventory) instanceof Water){
 			Water w = (Water) ps.getInvItem(indexOfItemInInventory);
@@ -1349,7 +1349,7 @@ public class Screen extends JPanel implements KeyListener{
 
 			ps.decreaseItemAmount(indexOfItemInInventory, 1);
 			
-			moveDeductedLife = 0;
+			
 
 		} else if(ps.getInvItem(indexOfItemInInventory) instanceof Food){
 			Food f = (Food) ps.getInvItem(indexOfItemInInventory);
@@ -1359,7 +1359,7 @@ public class Screen extends JPanel implements KeyListener{
 
 			ps.decreaseItemAmount(indexOfItemInInventory, 1);
 			
-			moveDeductedLife = 0;
+			
 
 		}
 	}
