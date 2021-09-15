@@ -33,12 +33,12 @@ public class PlayerStatus{
 		//inventory.add(new HealthPotion());
 
 		//inventory.add(new Food());
-		//inventory.add(new Water());
+		inventory.add(new Water());
 
 
 		//inventory.add(new HealthPotion());
 			
-		//inventory.add(new Sword("something",2));
+		inventory.add(new Sword("of Water",4));
 //		inventory.add(new Bow("something else",3));
 //		inventory.add(new Sword("something more more ",9));
 //		inventory.add(new Sword("something more more additional ",4));

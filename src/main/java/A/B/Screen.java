@@ -52,8 +52,11 @@ public class Screen extends JPanel implements KeyListener{
 	private int rows, cols;
 
 
-	private int seed = 1;
+	//public int seed = 987654321;
+	public int seed = 2;
 	Random generator = new Random(seed);
+	
+	
 
 	//private Random seedNum;
 	//private Random generator;
@@ -62,9 +65,68 @@ public class Screen extends JPanel implements KeyListener{
 	private boolean stop = false ;
 
 
+	public Screen(int seed){
+		
+		
+		
+		tiles = new Tile[90][50];
+		
+		roomArr = new ArrayList<Room>();
+		ps = new PlayerStatus();
+		items = new ArrayList<ItemTile>();
+		weapDict = new WeaponDictonary();
+		mobs = new ArrayList<Monster>();
+		bb = new BottomBar();
+		
+		mp = new MusicPlayer();
+		//mp.start(); //Need to change the music as i dont like stealing :/
+		
+		level = 0;
+		moves = 0;
+		moveDeductedLife = 0;
+
+
+		menuHighlighted = 0;
+		mainMenu = true;
+		
+		this.mapSetUp();
+		
+		//YOU CAN USE ASCII CHARACTERS TOOOO!!! (kinda)
+		
+		//outlineGray = new Color(152, 152, 152);
+		gameAreaOutline = new Color(255, 255, 255);
+		healthRed = new Color(249, 45, 14);
+		manaBlue = new Color(22, 51, 245);
+		invScreenBG = new Color(0.30196f, 0.30196f, 0.30196f, 0.8f);
+		invScreenHighlight = new Color(0.69803f, 0.69803f, 0.69803f, 0.9f);
+		invScreenEquipped = new Color(1.0f, 1.0f, 0.0f, 0.9f);
+		consoleGreen = new Color(0, 255, 26);
 
 
 
+		bgRed = ((int)(Math.random() * 255));
+		bgGreen = ((int)(Math.random() * 255));
+		bgBlue = ((int)(Math.random() * 255));
+		
+		goalRed = ((int)(Math.random() * 255));
+		goalGreen = ((int)(Math.random() * 255));
+		goalBlue = ((int)(Math.random() * 255));
+
+		
+		tileFont = new Font("Arial", Font.PLAIN, 10);
+		testFont = new Font("Arial", Font.BOLD, 15);
+		invFont = new Font("Times New Roman", Font.BOLD, 20);//Should mess around with font type
+		consoleFont = new Font("Courier New", Font.BOLD, 15);
+		menuFont = new Font("Arial", Font.BOLD, 50);
+		controlFont = new Font("Arial", Font.BOLD, 20);
+		
+		playerTurn = true;
+		
+		addKeyListener(this);
+		
+	}
+	
+	
 	public Screen(){
 		tiles = new Tile[90][50];
 		
@@ -675,6 +737,10 @@ public class Screen extends JPanel implements KeyListener{
 			case 5://Food 
 					toReturn = new Food();
 				break;	
+				
+//			case 6://Water 
+//				toReturn = new Water();
+//			break;
 		
 			default:
 				System.out.println("4");
@@ -1298,6 +1364,8 @@ public class Screen extends JPanel implements KeyListener{
 					bb.addMessage("You Died of moves...");
 					ps.setAlive(false);
 				}
+				
+				
 
 
 				playerTurn = !playerTurn;
