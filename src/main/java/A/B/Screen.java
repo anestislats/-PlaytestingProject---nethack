@@ -53,7 +53,7 @@ public class Screen extends JPanel implements KeyListener{
 
 
 	//public int seed = 987654321;
-	public int seed = 2;
+	public int seed = 1 ;
 	Random generator = new Random(seed);
 	
 	
@@ -67,6 +67,8 @@ public class Screen extends JPanel implements KeyListener{
 
 	public Screen(int seed){
 		
+		this.seed = seed;
+		this.generator = new Random(seed);
 		
 		
 		tiles = new Tile[90][50];
@@ -128,6 +130,8 @@ public class Screen extends JPanel implements KeyListener{
 	
 	
 	public Screen(){
+		
+		
 		tiles = new Tile[90][50];
 		
 		roomArr = new ArrayList<Room>();
@@ -1353,9 +1357,9 @@ public class Screen extends JPanel implements KeyListener{
 				moves++;
 
 				// Loose 1 life point for every 8 steps moving
-				if ( moves%8 == 0){
+				if ( moves%16 == 0){
 					ps.reduceHealth(1);
-					bb.addMessage("You just moved 8 steps. You lost 1 life point.");
+					bb.addMessage("You just moved 16 steps. You lost 1 life point.");
 					moveDeductedLife++;
 				}
 
@@ -1477,7 +1481,7 @@ public class Screen extends JPanel implements KeyListener{
 			
 			switch(key){
 			case 38://Up
-				if(tiles[x][y-1] instanceof FloorTile || tiles[x][y-1] instanceof ItemTile){
+				if(tiles[x][y-1] instanceof FloorTile || tiles[x][y-1] instanceof ItemTile || tiles[x][y-1] instanceof Player ){
 					tiles[x][y] = new FloorTile(x, y);
 					p1.moveUp();
 				} else if(tiles[x][y-1] instanceof Monster)
@@ -1490,7 +1494,7 @@ public class Screen extends JPanel implements KeyListener{
 				break;
 			
 			case 40://Down
-				if(tiles[x][y+1] instanceof FloorTile || tiles[x][y+1] instanceof ItemTile){
+				if(tiles[x][y+1] instanceof FloorTile || tiles[x][y+1] instanceof ItemTile || tiles[x][y+1] instanceof Player){
 					tiles[x][y] = new FloorTile(x, y);
 					p1.moveDown();
 				} else if(tiles[x][y+1] instanceof Monster)
@@ -1503,7 +1507,7 @@ public class Screen extends JPanel implements KeyListener{
 				break;
 			
 			case 37://Left
-				if(tiles[x-1][y] instanceof FloorTile || tiles[x-1][y] instanceof ItemTile){
+				if(tiles[x-1][y] instanceof FloorTile || tiles[x-1][y] instanceof ItemTile || tiles[x-1][y] instanceof Player){
 					tiles[x][y] = new FloorTile(x, y);
 					p1.moveLeft();
 				} else if(tiles[x-1][y] instanceof Monster)
@@ -1516,7 +1520,7 @@ public class Screen extends JPanel implements KeyListener{
 				break;
 				
 			case 39://Right
-				if(tiles[x+1][y] instanceof FloorTile || tiles[x+1][y] instanceof ItemTile){
+				if(tiles[x+1][y] instanceof FloorTile || tiles[x+1][y] instanceof ItemTile || tiles[x+1][y] instanceof Player){
 					tiles[x][y] = new FloorTile(x, y);
 					p1.moveRight();
 				} else if(tiles[x+1][y] instanceof Monster)

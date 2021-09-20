@@ -7,7 +7,7 @@ public class HealthPotion extends Item implements Serializable {
 	
 	public HealthPotion(){
 		super(1);
-		restoreAmt = 5;
+		restoreAmt = 6;
 	}
 	
 	public int getRestoreAmount(){

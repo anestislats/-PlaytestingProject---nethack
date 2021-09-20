@@ -7,7 +7,7 @@ public class Food extends Item  implements Serializable {
 	
 	public Food(){
 		super(1);
-		restoreAmt = 3;
+		restoreAmt = 5;
 	}
 	
 	public int getRestoreAmount(){

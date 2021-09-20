@@ -34,6 +34,7 @@ public class PlayerStatus{
 
 		//inventory.add(new Food());
 		inventory.add(new Water());
+		//inventory.add(new Water());
 
 
 		//inventory.add(new HealthPotion());
