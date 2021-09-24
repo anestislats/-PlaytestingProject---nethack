@@ -9,10 +9,15 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
-
+import java.util.StringJoiner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import java.awt.Robot;
 import java.awt.Window;
 
@@ -688,7 +693,9 @@ public class Screen extends JPanel implements KeyListener{
 			}
 			
 		 }
-
+		 
+		 
+		 
 		for (int i =0; i < cols; i++){
 		 	for (int j=0; j<rows; j++){
 		 		System.out.print(levelMap[j][i]);
@@ -696,13 +703,71 @@ public class Screen extends JPanel implements KeyListener{
 			}
 			System.out.print("\n");
 		}
+		
+		
+		// ////////////////////////////////////////////
+		// Convert level map into a single 1D String //
+		// ////////////////////////////////////////////
+		
+		/*
+		
+		StringJoiner sj = new StringJoiner(System.lineSeparator());
+		for (String[] row : levelMap) {
+		    sj.add(Arrays.toString(row));
+		}
+		String result = sj.toString();
+		System.out.println("R E S U L T : >>> ");
+		System.out.println(result);
+
+		
+		List<String> list = new ArrayList<String>();
+	    for (int i = 0; i < levelMap.length; i++) {
+	        // tiny change 1: proper dimensions
+	        for (int j = 0; j < levelMap[i].length; j++) { 
+	            // tiny change 2: actually store the values
+	            list.add(levelMap[i][j]); 
+	        }
+	    }
 
 
-		//for (String[] row : levelMap)
+	    
+	    System.out.println("RESULT: >>> ");
+		System.out.println(list);
+		System.out.println("List size: "+list.size());
+		
+		
+		// Write the 1D string into a csv file
+		FileWriter writer = null;
+		try {
+			writer = new FileWriter("try1.csv");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-			// converting each row as string
-			// and then printing in a separate line
-		//	System.out.println(Arrays.toString(row));
+	    
+
+	    String collect = list.stream().collect(Collectors.joining(","));
+	    System.out.println(collect);
+
+	    try {
+			writer.write(collect);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    try {
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	    /////////////////////////////////////////////////////////////////////
+	    /////////////////////////////////////////////////////////////////////
+	     
+	    */
 
 	}
 	// OLD CODE: int rand = (int) (Math.random() * 3 +1)
@@ -1097,6 +1162,9 @@ public class Screen extends JPanel implements KeyListener{
 
 
 	}
+	
+	
+	
 
 	private boolean isInRoom(int x, int y){
 		for(int i =0; i < roomArr.size(); i++){
